@@ -1,20 +1,16 @@
 import 'dart:math';
-
 import 'package:countries/models/country_model.dart';
 import 'package:countries/services/country_service.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 
-class CountryPage extends StatefulWidget {
-  const CountryPage({super.key});
+class MainPage extends StatefulWidget {
+  const MainPage({super.key});
 
   @override
-  State<CountryPage> createState() => _CountryPageState();
+  State<MainPage> createState() => _MainPageState();
 }
 
-class _CountryPageState extends State<CountryPage> {
+class _MainPageState extends State<MainPage> {
   final _countryService = CountryService().getCountries();
   int currentCountry = 0;
 
@@ -32,7 +28,7 @@ class _CountryPageState extends State<CountryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green.shade200,
+      backgroundColor: Colors.cyan.shade200,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -58,11 +54,14 @@ class _CountryPageState extends State<CountryPage> {
                               ),
                             ),
                             const SizedBox(height: 10),
-                            Text('Official name: ${snapshot.data![currentCountry].officialName}'),
+                            Text(
+                                'Official name: ${snapshot.data![currentCountry].officialName}'),
                             const SizedBox(height: 10),
-                            Text('Region: ${snapshot.data![currentCountry].region}'),
+                            Text(
+                                'Region: ${snapshot.data![currentCountry].region}'),
                             const SizedBox(height: 10),
-                            Text('Population: ${snapshot.data![currentCountry].population}'),
+                            Text(
+                                'Population: ${snapshot.data![currentCountry].population}'),
                           ],
                         ),
                       ),
